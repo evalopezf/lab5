@@ -1,0 +1,14 @@
+# Utiliza la imagen oficial de Python 3.11
+FROM python:3.11
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia el notebook al directorio de trabajo
+COPY pi.ipynb /app/
+
+# Instala los paquetes necesarios
+RUN pip install jupyter numpy numba
+
+# Establece el comando por defecto
+CMD ["ipython", "/app/pi.ipynb", "1000000"]
